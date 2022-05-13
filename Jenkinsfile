@@ -7,15 +7,23 @@ pipeline {
                 echo 'Hello World'
             }
         }
-        stage('Segundo Stage') {
-            agent {label 'docker-agent'}
+        stage('Segundo stage') {
+            agent { label 'docker-agent' }
             steps {
-                sh 'echo "Hello World"'
                 sh '''
                     hostname
                     pwd
-                    ls -la
+                    ls -la /
                 '''
+            }
+        }
+        stage('Testing') {
+            when {
+                branch 'PR-*'
+            }
+            agent { label 'agent' }
+            steps {
+                sh './test.sh'
             }
         }
     }
