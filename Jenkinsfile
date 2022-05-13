@@ -17,5 +17,6 @@ pipeline {
                     ls -la
                 '''
             }
+        }
     }
 }
