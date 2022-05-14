@@ -23,7 +23,10 @@ pipeline {
             }
             agent { label 'agent' }
             steps {
-                sh './test.sh'
+                sh '''
+                chmod +x test.sh script_pruebas.sh
+                ./test.sh
+                '''
             }
         }
     }
