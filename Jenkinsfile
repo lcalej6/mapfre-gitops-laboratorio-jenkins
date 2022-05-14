@@ -24,7 +24,7 @@ pipeline {
             agent { label 'agent' }
             steps {
                 sh '''
-                chmod +x test.sh
+                chmod +x *.sh
                 ./test.sh
                 '''
             }
